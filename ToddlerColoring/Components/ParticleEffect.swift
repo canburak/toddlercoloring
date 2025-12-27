@@ -92,15 +92,14 @@ struct ParticleView: View {
 }
 
 extension Particle {
-    @ViewBuilder
-    var shape: some Shape {
+    var shape: AnyShape {
         switch Int.random(in: 0...2) {
         case 0:
-            Circle()
+            AnyShape(Circle())
         case 1:
-            Rectangle()
+            AnyShape(Rectangle())
         default:
-            Star(corners: 5, smoothness: 0.45)
+            AnyShape(Star(corners: 5, smoothness: 0.45))
         }
     }
 }
