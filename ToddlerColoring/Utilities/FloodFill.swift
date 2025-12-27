@@ -106,7 +106,7 @@ class FloodFill {
 
     // MARK: - Pixel Operations
 
-    private struct RGBA {
+    struct RGBA {
         var r: UInt8
         var g: UInt8
         var b: UInt8
@@ -146,7 +146,7 @@ class FloodFill {
 // MARK: - Color Extension
 
 extension Color {
-    func toRGBA() -> (r: UInt8, g: UInt8, b: UInt8, a: UInt8) {
+    func toRGBA() -> FloodFill.RGBA {
         let uiColor = UIColor(self)
         var r: CGFloat = 0
         var g: CGFloat = 0
@@ -155,7 +155,7 @@ extension Color {
 
         uiColor.getRed(&r, green: &g, blue: &b, alpha: &a)
 
-        return (
+        return FloodFill.RGBA(
             r: UInt8(r * 255),
             g: UInt8(g * 255),
             b: UInt8(b * 255),
